@@ -1,24 +1,18 @@
 package com.jokesapi.model;
 
-import org.springframework.data.relational.core.mapping.Table;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Table("jokes")
-public class Joke {
-
+public class JokeResponseDto {
 
 	private String id;
-	@JsonProperty("setup")
+
 	private String question;
-	@JsonProperty("punchline")
+
 	private String answer;
 
 }
