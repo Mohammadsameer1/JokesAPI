@@ -1,7 +1,10 @@
 package com.jokesapi.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -9,14 +12,16 @@ import com.jokesapi.exception.InvalidJokeResponseException;
 import com.jokesapi.exception.JokeFetchException;
 import com.jokesapi.model.JokeFetchDto;
 
-import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-@Slf4j
+
 public class JokeFetchService {
 
+	  Logger log= LoggerFactory.getLogger(JokeFetchService.class);
+
+	
     @Autowired
     private WebClient webClient;  // Autowired WebClient used for fetching jokes from external API
 

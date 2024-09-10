@@ -1,5 +1,7 @@
 package com.jokesapi.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 import org.springframework.data.relational.core.query.Criteria;
@@ -10,17 +12,17 @@ import com.jokesapi.exception.DataAccessException;
 import com.jokesapi.model.JokeEntity;
 import com.jokesapi.model.JokeSaveDto;
 
-import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
-@Slf4j
+
 @Service
 public class JokeInsertService {
 
+	Logger log= LoggerFactory.getLogger(JokeInsertService.class);
 	@Autowired
 	private R2dbcEntityTemplate r2dbcEntityTemplate;
 
-	public Mono<JokeSaveDto> insertIfNotExists(JokeSaveDto jokeSaveDto) {
+	 Mono<JokeSaveDto> insertIfNotExists(JokeSaveDto jokeSaveDto) {
 		
 		log.info("Attempting to insert joke with ID: {}", jokeSaveDto.getId());
 
